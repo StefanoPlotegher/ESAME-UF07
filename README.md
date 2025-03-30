@@ -6,6 +6,8 @@
 /Task Manager
 ├── /assets
 │   └── style.css
+├── /data
+│   └── task.json
 ├── /src
 │   └── script.js
 ├── index.html
