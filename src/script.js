@@ -9,10 +9,12 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     let tasks = [];
 
-    //Caricamento dlle task dal server
+    /**
+     * funzione per caricare le task dal file json tramite il server
+     */
     async function caricaTask(){
         try{
-            const res = await fetch('/tasks');
+            const res = await fetch('/read');
             if (!res.ok){
                 throw new Error('Errore nel caricamento dal server');
             }
