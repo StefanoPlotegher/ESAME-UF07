@@ -8,5 +8,5 @@ const PORT = 3000;
  * @param {function} callback - Funzione di callback che conferma l'avvio del server
  */
 app.listen(PORT, () => {
-  console.log(`Server in ascolto sulla porta: ${PORT}`);
+  console.log(`Server in ascolto su http://localhost:${PORT}`);
 });
