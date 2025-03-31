@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 throw new Error('Errore nel caricamento dal server');
             }
             tasks = await res.json();
+            console.log(tasks);
             creaCards();
         }catch(err){
             console.error(error.message);
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             .forEach(task =>{
                 const card = document.createElement('div');
                 card.className = `card ${task.priorita}`;
-                card.innerHtml = `
+                card.innerHTML = `
                     <h2>${task.titolo}</h2>
                     <p>Scadenza ${task.data}</p>
                     <p>Descrizione${task.desc}</p>

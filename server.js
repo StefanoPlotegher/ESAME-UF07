@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const app = express();
 const PORT = 3000;
-const FILE = path.join(__dirname, 'public', 'data', 'task.json');
+const FILE = path.join(__dirname, 'data', 'task.json');
 
 app.use(express.json());
 app.use(express.static('public'));
