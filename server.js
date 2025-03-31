@@ -6,7 +6,7 @@ const PORT = 3000;
 const FILE = path.join(__dirname, 'data', 'task.json');
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(__dirname));
 
 /**
  * Endpoint per la lettura e l'invio dl file JSON

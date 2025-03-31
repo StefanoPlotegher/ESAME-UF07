@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () =>{
-    const dashboard = document.getElementById('dashboard');
     //creazione oggetto sezioni per accedere alle card delle tre sezioni
     const sezioni = {
         daFare: document.querySelector('#daFare .cards'),
@@ -19,10 +18,32 @@ document.addEventListener('DOMContentLoaded', () =>{
                 throw new Error('Errore nel caricamento dal server');
             }
             tasks = await res.json();
+            creaCards();
         }catch(err){
             console.error(error.message);
         }
     }
 
-    loadTasks();
+    /**
+     * funzione per creare le card delle task e filtrarle in base al titolo
+     * @param {string} filtro - stringa per filtrare le task in base al titolo
+     * 
+     */
+    function creaCards(filtro= ''){
+        Object.values(sezioni).forEach(sezione => sezione.innerHTML = '');
+
+        tasks.filter(task=>task.titolo.toLowerCase().includes(filtro))
+            .forEach(task =>{
+                const card = document.createElement('div');
+                card.className = `card ${task.priorita}`;
+                card.innerHtml = `
+                    <h2>${task.titolo}</h2>
+                    <p>Scadenza ${task.data}</p>
+                    <p>Descrizione${task.desc}</p>
+                `;
+                sezioni[task.stato].appendChild(card);
+            });
+        };
+
+    caricaTask();
 });
