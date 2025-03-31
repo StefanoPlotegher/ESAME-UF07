@@ -4,13 +4,15 @@
 
 ```
 /Task Manager
-├── /assets
-│   └── style.css
 ├── /data
 │   └── task.json
-├── /src
-│   └── script.js
-├── index.html
+├── /public
+│   ├── index.html
+│   ├── /assets
+│       └── style.css
+│   ├── /src
+│       └── script.js
+│   ├── task-list-svgrepo-com.svg
 ├── server.js
 ├── README.md
 ```
