@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             console.log(tasks);
             creaCards();
         }catch(err){
-            console.error(error.message);
+            console.error(err.message);
         }
     }
 
@@ -36,11 +36,12 @@ document.addEventListener('DOMContentLoaded', () =>{
         tasks.filter(task=>task.titolo.toLowerCase().includes(filtro))
             .forEach(task =>{
                 const card = document.createElement('div');
+                data = new Date(task.data).toLocaleDateString();//conversione della data nel formato DD/MM/YYYY
                 card.className = `card ${task.priorita}`;
                 card.innerHTML = `
-                    <h2>${task.titolo}</h2>
-                    <p>Scadenza ${task.data}</p>
-                    <p>Descrizione${task.desc}</p>
+                    <h3>${task.titolo}</h3>
+                    <p>Scadenza: ${data}</p>
+                    <p>Descrizione: ${task.desc}</p>
                 `;
                 sezioni[task.stato].appendChild(card);
             });
