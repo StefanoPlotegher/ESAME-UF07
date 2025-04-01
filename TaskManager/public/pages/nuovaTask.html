@@ -17,21 +17,26 @@
         </ul>
     </nav>
     <div id="taskManager">
-        <!---Dashboard di visualizzazione dele task-->
-        <section id="dashboard">
-            <div id="daFare" class="tasks">
-                <h2>Da Fare</h2>
-                <div class="cards"></div>
-            </div>
-            <div id="inCorso" class="tasks">
-                <h2>In Corso</h2>
-                <div class="cards"></div>
-            </div>
-            <div id="completate" class="tasks">
-                <h2>Completate</h2>
-                <div class="cards"></div>
-            </div>
-        </section>
+        <!---Form per la nuova task-->
+        <form id="nuovaTask">
+            <label for="titolo"  class="inputLabel">Titolo della Task</label>
+            <input type="text" id="titolo" class="input" placeholder="Inserire il titolo della task" required>
+
+            <label for="data" class="inputLabel">Data di scadenza della Task</label>
+            <input type="date" id="data" class="input" required>
+            
+            <label for="desc" class="inputLabel">Descrizione della Task</label>
+            <textarea id="desc" class="input" placeholder="Inserire una descrizione della task"></textarea>
+        
+            <label for="priorita" class="inputLabel">Priorità della Task</label>
+            <select id="priorita" class="input" required>
+                <option value="green">Bassa</option>
+                <option value="yellow">Media</option>
+                <option value="red">Alta</option>
+            </select>
+
+            <button type="submit">Aggiungi Task</button>
+        </form>
     </div>
 </body>
 </html>
