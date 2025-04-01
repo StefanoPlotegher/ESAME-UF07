@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const { error } = require('console');
 
 const app = express();
 const PORT = 3000;
@@ -11,10 +12,10 @@ app.use(express.static('public'));
 
 /**
  * Endpoint per la lettura e l'invio dl file JSON
- * @param {string} '/read' - Percorso dell'endpoint
+ * @param {string} '/tasks' - Percorso dell'endpoint
  * @param {function} callback - Funzione di callback che legge il file JSON e lo invia al client
  */
-app.get('/read', (req, res) => {
+app.get('/tasks', (req, res) => {
     // Verifica se il file esiste
     fs.access(FILE, fs.constants.F_OK, (err) => {
         if (err) {
@@ -25,15 +26,46 @@ app.get('/read', (req, res) => {
         fs.readFile(FILE, "utf8", (err, data) => {
             if (err) {
                 console.error("Errore nella lettura del file", err);
-                return res.status(500).json({ error: 'Errore nella lettura del file' });
+                return res.status(500).send("Errore del Server");
             }
             try {
                 const tasks = JSON.parse(data);
                 res.json(tasks);
             } catch (parseError) {
                 console.error("Errore nel parsing del file", parseError);
-                res.status(500).json({ error: 'Errore nel parsing del file' });
+                res.status(500).send("Errore del Server");
             }
+        });
+    });
+});
+
+/**
+ * Endpoint per la scrittura del file JSON
+ * @param {string} '/tasks' - Percorso dell'endpoint
+ * @param {function} callback - Funzione di callback che scrive il file JSON
+ */
+app.post('/tasks', (req, res) => {
+    const task = req.body;
+
+    //recuper il contenuto del file
+    fs.readFile(FILE, "utf8", (err, data) => {
+        if (err){
+            console.error("Errore nella lettura del file", err);
+            return res.status(500).json({err:"Errore del Server"});
+        }
+
+        //aggiunge la nuova task
+        const tasks = JSON.parse(data);
+        tasks.push(task);
+
+        //Scrive sul file le task aggiornate
+        fs.writeFile(FILE, JSON.stringify(tasks, null, 2), (err) =>{
+            if(err){
+                console.error("Errore nella scrittura del file", err.message);
+                return res.status(500).json({err:"Errore del Server"});
+            }
+
+            res.status(201).json({err:"Task salvata con successo"});
         });
     });
 });

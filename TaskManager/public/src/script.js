@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () =>{
         inCorso: document.querySelector('#inCorso .cards'),
         completate: document.querySelector('#completate .cards')
     }
+    const dashboard = document.getElementById('dashboard');
+    const form = document.getElementById('nuovaTask');
 
     let tasks = [];
 
@@ -13,13 +15,12 @@ document.addEventListener('DOMContentLoaded', () =>{
      */
     async function caricaTask(){
         try{
-            const res = await fetch('/read');
+            const res = await fetch('/tasks');
             if (!res.ok){
                 throw new Error('Errore nel caricamento dal server');
             }
             tasks = await res.json();
             console.log(tasks);
-            creaCards();
         }catch(err){
             console.error(err.message);
         }
@@ -45,7 +46,64 @@ document.addEventListener('DOMContentLoaded', () =>{
                 `;
                 sezioni[task.stato].appendChild(card);
             });
-        };
+    };
 
-    caricaTask();
+    /**
+     * funzione per salvare la task sul server
+     * @param {object} task - nuova task da salvare 
+     */
+    async function salvaTask(task){
+        try {
+            await fetch('/tasks', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(task)
+            });
+        }catch(err){
+            console.error("Errore nel salvataggio della trask", err.message);
+        }
+    }
+
+    /**
+     * Evento per la creazione della nuova task
+     * @param {Event} e - evento di submit
+     * 
+     */
+    if (form){
+        form.addEventListener('submit', (e) =>{
+            e.preventDefault();
+
+            //recupero i valori dei campi del form
+            const titolo = document.getElementById('titolo')?.value.trim();
+            const data = document.getElementById('data')?.value;
+            const desc = document.getElementById('desc')?.value.trim();
+            const priorita = document.getElementById('priorita')?.value;
+            const stato = 'daFare';
+
+            //controllo campi obbligatori
+            if (!titolo || !data || !desc || !priorita){
+                console.error('Tutti i campi sono obbligatori');
+                return;
+            }
+
+            const newTask = {titolo, data, desc, priorita, stato};
+
+            //aggiungo la nuova task
+            tasks.push(newTask);
+            salvaTask(newTask);
+            form.reset();
+
+        })
+    }
+
+    //carico le task
+    caricaTask()
+        .then(() => {
+            //creo le card solo se esiste lo spazio adibito
+            if (dashboard){
+                creaCards();
+            }
+        })
+        .catch(error => console.error("Errore nel caricamento delle task:", error.message));
+
 });
