@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () =>{
                 throw new Error('Errore nel caricamento dal server');
             }
             tasks = await res.json();
-            console.log(tasks);
         }catch(err){
             console.error(err.message);
         }
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         Object.values(sezioni).forEach(sezione => sezione.innerHTML = '');
 
         tasks.filter(task=>task.titolo.toLowerCase().includes(filtro))
-            .forEach(task =>{
+            .forEach((task, i) =>{
                 const card = document.createElement('div');
                 data = new Date(task.data).toLocaleDateString();//conversione della data nel formato DD/MM/YYYY
                 card.className = `card ${task.priorita}`;
@@ -45,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () =>{
                     <p>Descrizione: ${task.desc}</p>
                 `;
                 sezioni[task.stato].appendChild(card);
+                card.addEventListener('click', () => {
+                    window.location.href = `/pages/visualizzaTask.html?taskId=${i}`;
+                });
             });
     };
 
@@ -60,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 body: JSON.stringify(task)
             });
         }catch(err){
-            console.error("Errore nel salvataggio della trask", err.message);
+            console.error("Errore nel salvataggio della task", err.message);
         }
     }
 
