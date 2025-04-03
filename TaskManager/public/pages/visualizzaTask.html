@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../src/?.js"></script>
+    <title>TASKY</title>
+</head>
+<body>
+    <div id="taskManager">
+        <h1>Task Details</h1>
+        <form id="form">
+            <label for="titolo">Title:</label>
+            <input type="text" id="titolo" name="titolo">
+            
+            <label for="data">Date:</label>
+            <input type="date" id="data" name="data">
+            
+            <label for="desc">Description:</label>
+            <textarea id="desc" name="desc"></textarea>
+            
+            <label for="priorita">Priority:</label>
+            <select id="priorita" name="priorita">
+                <option value="green">Low</option>
+                <option value="yellow">Medium</option>
+                <option value="red">High</option>
+            </select>
+
+            <label for="stato">Stato:</label>
+            <select id="stato" name="stato">
+                <option value="daFare">Da Fare</option>
+                <option value="inCorso">In Corso</option>
+                <option value="completata">Completata</option>
+            </select>
+            
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
