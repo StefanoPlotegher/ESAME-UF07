@@ -1,16 +1,30 @@
 [
-    {
-        "titolo": "Mangiare",
-        "data": "2032-04-13",
-        "desc": "Sfondarsi di cibo",
-        "priorita": "green",
-        "stato": "daFare"
-      },
-      {
-        "titolo": "Bere",
-        "data": "2032-04-13",
-        "desc": "Sfondarsi di alcohol",
-        "priorita": "red",
-        "stato": "inCorso"
-      }
+  {
+    "titolo": "Mangiare",
+    "data": "2032-04-13",
+    "desc": "Sfondarsi di cibo",
+    "priorita": "green",
+    "stato": "completate"
+  },
+  {
+    "titolo": "Lavorare",
+    "data": "2032-04-13",
+    "desc": "Fare il lavoro",
+    "priorita": "red",
+    "stato": "completate"
+  },
+  {
+    "titolo": "Studiare",
+    "data": "2032-04-13",
+    "desc": "Studiare per l'esame",
+    "priorita": "yellow",
+    "stato": "completate"
+  },
+  {
+    "titolo": "Giocare",
+    "data": "2032-04-13",
+    "desc": "Giocare a Fortnite",
+    "priorita": "blue",
+    "stato": "completate"
+  }
 ]

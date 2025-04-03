@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 card.className = `card ${task.priorita}`;
                 card.innerHTML = `
                     <h3>${task.titolo}</h3>
-                    <p>Scadenza: ${data}</p>
+                    <p>Scadenza: ${data}</p><br>
                     <p>Descrizione: ${task.desc}</p>
                 `;
                 sezioni[task.stato].appendChild(card);
