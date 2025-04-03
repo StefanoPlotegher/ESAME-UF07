@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('taskId');
     const form = document.getElementById('form');
+    const elimina = document.getElementById('elimina');
 
     //recupero i dati delle task
     let tasks = [];
@@ -50,6 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tasks[id] = taskMod;
 
+        salvaTask();
+        window.location.href = "../index.html";
+    });
+
+    elimina.addEventListener('click', (e) => {
+        e.preventDefault();
+        tasks.splice(id, 1);
         salvaTask();
         window.location.href = "../index.html";
     });

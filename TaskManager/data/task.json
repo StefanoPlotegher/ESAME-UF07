@@ -1,17 +1,10 @@
 [
   {
-    "titolo": "Mangiare",
-    "data": "2032-04-13",
-    "desc": "Sfondarsi di cibo",
-    "priorita": "green",
-    "stato": "completate"
-  },
-  {
     "titolo": "Lavorare",
     "data": "2032-04-13",
     "desc": "Fare il lavoro",
     "priorita": "red",
-    "stato": "completate"
+    "stato": "inCorso"
   },
   {
     "titolo": "Studiare",
@@ -24,7 +17,7 @@
     "titolo": "Giocare",
     "data": "2032-04-13",
     "desc": "Giocare a Fortnite",
-    "priorita": "blue",
+    "priorita": "green",
     "stato": "completate"
   }
 ]
