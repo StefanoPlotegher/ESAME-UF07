@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const { error } = require('console');
 
 const app = express();
 const PORT = 3000;
@@ -68,6 +67,20 @@ app.post('/tasks', (req, res) => {
             res.status(201).json({err:"Task salvata con successo"});
         });
     });
+});
+
+app.post('/mod', (req, res) => {
+    const tasks = req.body;
+        //Scrive sul file le task aggiornate
+        fs.writeFile(FILE, JSON.stringify(tasks, null, 2), (err) =>{
+            if(err){
+                console.error("Errore nella scrittura del file", err.message);
+                return res.status(500).json({err:"Errore del Server"});
+            }
+
+            res.status(201).json({err:"Task salvata con successo"});
+        });
+    
 });
 
 /**
