@@ -13,7 +13,7 @@ const reset = document.getElementById("reset");
 function aggiorna(){
     const now = Date.now();
     tTrascorso = now - tInizio;
-    tempo.textContent = tTrascorso;
+    tempo.textContent = formattaTempo(tTrascorso);
 }
 
 
@@ -31,3 +31,16 @@ start.addEventListener("click", () =>{
         stop.disabled = false;
     }
 });
+
+/**
+ * Funzione per formattare il cronometro in mm:ss:ms
+ * @param {number} ms 
+ * @returns {string}
+ */
+function formattaTempo(ms){
+    const minuti = Math.floor(ms / 60000).toString().padStart(2, '0');
+    const secondi = Math.floor((ms % 60000) / 1000).toString().padStart(2, '0');
+    const millisecondi = Math.floor((ms % 1000) / 10).toString().padStart(2, '0');
+
+    return `${minuti}:${secondi}:${millisecondi}`;
+}
