@@ -1,6 +1,6 @@
 let tInizio = 0;
 let tTrascorso = 0;
-let intervallo;
+let inCorso;
 
 const tempo = document.getElementById("tempo");
 const start = document.getElementById("start");
@@ -23,13 +23,24 @@ function aggiorna(){
  * disabilta il pulsante start
  */
 start.addEventListener("click", () =>{
-    if (!intervallo){
+    if (!inCorso){
         tInizio = Date.now() - tTrascorso;
-        intervallo = setInterval(aggiorna, 10);
+        inCorso = setInterval(aggiorna, 10);
         start.disabled = true;
         reset.disabled = true;
         stop.disabled = false;
     }
+});
+
+/**
+ * Event listener per fermare il cronometro
+ */
+stop.addEventListener("click", () =>{
+    clearInterval(inCorso);
+    inCorso = null;
+    start.disabled = false;
+    reset.disabled = false;
+    stop.disabled = true;
 });
 
 /**
