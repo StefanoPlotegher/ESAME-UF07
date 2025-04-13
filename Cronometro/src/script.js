@@ -44,6 +44,14 @@ stop.addEventListener("click", () =>{
 });
 
 /**
+ * Event listener per resettare il cronometro
+ */
+reset.addEventListener("click", () =>{
+    tTrascorso = 0;
+    tempo.textContent = "00:00:00";
+});
+
+/**
  * Funzione per formattare il cronometro in mm:ss:ms
  * @param {number} ms 
  * @returns {string}
