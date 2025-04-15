@@ -6,6 +6,7 @@ const tempo = document.getElementById("tempo");
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
+const giro = document.getElementById("giro");
 
 /**
  * Funzione per aggiornare il cronometro
@@ -29,6 +30,7 @@ start.addEventListener("click", () =>{
         start.disabled = true;
         reset.disabled = true;
         stop.disabled = false;
+        giro.disabled = false;
     }
 });
 
@@ -41,6 +43,7 @@ stop.addEventListener("click", () =>{
     start.disabled = false;
     reset.disabled = false;
     stop.disabled = true;
+    giro.disabled = true;
 });
 
 /**
