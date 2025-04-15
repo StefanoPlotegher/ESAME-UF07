@@ -80,3 +80,9 @@ function registraGiro(){
     listaGiri.appendChild(li);
 }
 
+/**
+ * Event listener per registrare un giro
+ */
+giro.addEventListener("click", () =>{
+    registraGiro();
+});
