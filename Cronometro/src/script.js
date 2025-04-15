@@ -1,12 +1,14 @@
 let tInizio = 0;
 let tTrascorso = 0;
 let inCorso;
+let giri = [];
 
 const tempo = document.getElementById("tempo");
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
 const giro = document.getElementById("giro");
+const listaGiri = document.getElementById("listaGiri");
 
 /**
  * Funzione per aggiornare il cronometro
@@ -65,4 +67,15 @@ function formattaTempo(ms){
     const millisecondi = Math.floor((ms % 1000) / 10).toString().padStart(2, '0');
 
     return `${minuti}:${secondi}:${millisecondi}`;
+}
+
+/**
+ * Funzione per registrre un giro e mostrarlo nella lista
+ */
+function registraGiro(){
+    const giro = giri.length<0 ? tTrascorso : tTrascorso - giri.reduce((a, b) => a + b, 0);
+    giri.push(giro);
+    const li = document.createElement("li");
+    li.textContent = formattaTempo(giro);
+    listaGiri.appendChild(li);
 }
