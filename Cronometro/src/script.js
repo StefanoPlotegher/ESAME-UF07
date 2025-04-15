@@ -78,7 +78,8 @@ function registraGiro(){
     giri.push(nuovoGiro);
     const li = document.createElement("li");
     li.textContent = `GIRO ${giri.length}: ${formattaTempo(nuovoGiro)}`;
-    listaGiri.appendChild(li);
+    listaGiri.prepend(li);
+
 }
 
 /**
