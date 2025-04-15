@@ -73,9 +73,10 @@ function formattaTempo(ms){
  * Funzione per registrre un giro e mostrarlo nella lista
  */
 function registraGiro(){
-    const giro = giri.length<0 ? tTrascorso : tTrascorso - giri.reduce((a, b) => a + b, 0);
-    giri.push(giro);
+    const nuovoGiro = giri.length<0 ? tTrascorso : tTrascorso - giri.reduce((a, b) => a + b, 0);
+    giri.push(nuovoGiro);
     const li = document.createElement("li");
-    li.textContent = formattaTempo(giro);
+    li.textContent = formattaTempo(nuovoGiro);
     listaGiri.appendChild(li);
 }
+
