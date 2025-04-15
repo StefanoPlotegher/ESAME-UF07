@@ -77,7 +77,7 @@ function registraGiro(){
     const nuovoGiro = giri.length<0 ? tTrascorso : tTrascorso - giri.reduce((a, b) => a + b, 0);
     giri.push(nuovoGiro);
     const li = document.createElement("li");
-    li.textContent = formattaTempo(nuovoGiro);
+    li.textContent = `GIRO ${giri.length}: ${formattaTempo(nuovoGiro)}`;
     listaGiri.appendChild(li);
 }
 
