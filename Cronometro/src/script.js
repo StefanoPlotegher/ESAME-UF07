@@ -54,6 +54,7 @@ stop.addEventListener("click", () =>{
 reset.addEventListener("click", () =>{
     tTrascorso = 0;
     tempo.textContent = "00:00:00";
+    listaGiri.innerHTML = "";
 });
 
 /**
