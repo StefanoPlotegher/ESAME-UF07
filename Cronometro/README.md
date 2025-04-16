@@ -1,7 +1,7 @@
-# Cronometro
+### Cronometro
 Un'applicazione che fornisce un cronometro che si può far partire, fermare e resettare
 
-# Struttura del progetto
+### Struttura del progetto
 /Cronometro
 ├──/assets
 │  └── style.css
@@ -10,7 +10,10 @@ Un'applicazione che fornisce un cronometro che si può far partire, fermare e re
 ├── index.html
 ├── README.md
 
-# Tecnologie utilizzate
+### descrizione dell'applicazione
+L'applicazione presenta quattro pulsanti: tre per la gestione del conteggio del tempo, ovvero far partire, fermare e azzerare il cronometro, mentra il quarto serve per registrare il tempo di un giro che vengono poi visualizzati in una lista sotto al cronometro
+
+### Tecnologie utilizzate
 
 - HTML
 - CSS
