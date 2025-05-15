@@ -1,0 +1,139 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #4f8cff 0%, #a6e3e9 100%);
+    min-height: 100vh;
+    color: #123456; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 10px;
+}
+
+
+.weather-container {
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    padding: 32px 28px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 24px 0;
+    transition: box-shadow 0.3s;
+}
+
+.weather-container:hover {
+    box-shadow: 0 12px 40px rgba(79,140,255,0.18);
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    color: #0a2540; 
+}
+
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 1.4rem; 
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.weather-icon {
+    width: 110px;    
+    height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px #a6e3e9);
+}
+
+.temp {
+    font-size: 3.8rem;
+    font-weight: 600;
+    color: #0a2540;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    margin-top: 16px;
+    font-size: 1.2rem; 
+}
+
+.detail-item {
+    background: #e0f7fa;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 1rem;
+    color: #123456;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.detail-item:hover {
+    background: #b2ebf2;
+}
+
+
+input[type="text"], select {
+    padding: 10px 14px;
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 16px;
+    width: 100%;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+    border: 1.5px solid #2563eb;
+}
+
+button {
+    padding: 10px 22px;
+    background: linear-gradient(90deg, #2563eb 60%, #4f8cff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.13);
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #4f8cff 60%, #2563eb 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 500px) {
+    .weather-container {
+        padding: 18px 8px;
+        max-width: 98vw;
+    }
+    .weather-main {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .temp {
+        font-size: 2rem;
+    }
+}
