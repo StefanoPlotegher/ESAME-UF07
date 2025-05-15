@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +8,25 @@
     <script src="scripts/script.js" defer></script>
 </head>
 <body>
-    <h1>BENVENUTI AL METEO (Tipo 3b ma per i poveri e fa vedere solo il meteo attuale)</h1>
-    <br>
-    <h2>Inserisci la latitudine e la longitudine per le quali vuoi cercare le informazioni meteo</h2>
-    <h2>Oppure prendi le tue coordinate</h2>
-    <br>
-    <button id="getLocation">Prendi le coordinate</button>
-    <br>
-    <form id="form">
-        <label for="lat">Latitudine:</label>
-        <input type="text" id="lat" name="lat" required placeholder="Latitudine">
-        <label for="lon">Longitudine:</label>
-        <input type="text" id="lon" name="lon" required placeholder="Longitudine">
-        <button type="submit">Invia</button>
-    </form>
-
-    <div id="meteo" class="hidden"></div>
+    <h1>Tipo i siti belli che si trovano solo che fa vedere solo il meteo attuale</h1>
+    <div class="weather-container">
+        <h2>Inserisci la latitudine e la longitudine</h2>
+        <h3>Oppure usa la tua posizione</h3>
+        <button id="getLocation" style="margin-bottom: 18px;">Prendi le coordinate</button>
+        <form id="form">
+            <div class="details">
+                <div class="detail-item">
+                    <label for="lat">Latitudine:</label>
+                    <input type="text" id="lat" name="lat" required placeholder="Latitudine">
+                </div>
+                <div class="detail-item">
+                    <label for="lon">Longitudine:</label>
+                    <input type="text" id="lon" name="lon" required placeholder="Longitudine">
+                </div>
+            </div>
+            <button type="submit">Invia</button>
+        </form>
+        <div id="meteo" class="weather-info" style="margin-top: 24px;"></div>
+    </div>
 </body>
 </html>

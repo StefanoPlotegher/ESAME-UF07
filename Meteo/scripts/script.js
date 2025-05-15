@@ -53,14 +53,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log(meteo);
                     meteoDiv.innerHTML = `
                         <h2>Meteo attuale</h2>
-                        <p>Temperatura: ${meteo.temperature_2m} °C</p>
-                        <p>Umidità: ${meteo.relative_humidity_2m} %</p>
-                        <p>Precipitazioni: ${meteo.precipitation} mm</p>
-                        <p>Pioggia: ${meteo.rain} mm</p>
-                        <p>Copertura nuvolosa: ${meteo.cloud_cover} %</p>
-                        <p>Velocità vento: ${meteo.wind_speed_10m} km/h</p>
-                        <p>Codice meteo: ${meteo.weather_code}</p>
-                        <p>${icons[meteo.weather_code]}</p>
+                        <div class="weather-info">
+                            <div class="weather-main">
+                                <span class="weather-icon" style="font-size: 5rem;">${icons[meteo.weather_code] || ""}</span>
+                                <span class="temp">${meteo.temperature_2m}°C</span>
+                            </div>
+                            <div class="details">
+                                <div class="detail-item">Umidità: ${meteo.relative_humidity_2m} %</div>
+                                <div class="detail-item">Precipitazioni: ${meteo.precipitation} mm</div>
+                                <div class="detail-item">Pioggia: ${meteo.rain} mm</div>
+                                <div class="detail-item">Copertura nuvolosa: ${meteo.cloud_cover} %</div>
+                                <div class="detail-item">Vento: ${meteo.wind_speed_10m} km/h</div>
+                                <div class="detail-item">Codice meteo: ${meteo.weather_code}</div>
+                            </div>
+                        </div>
                     `;
                 })
                 .catch(error => {
