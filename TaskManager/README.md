@@ -39,3 +39,9 @@ Per modificare i dati di una specifica task si clicca sulla card desiderata e si
 - JavaScript
 - Express
     - La scelta di fare un server con Express mi consente di salvare le task su un file JSON per poterle vedere in futuro anche chiudendo il browser. Vengono implementati tre endpoint, uno per ricevere le informazioni sulle task e uno per aggiungere una nuova task il file JSON e uno per le task modificate
+
+## Utilizzo
+
+Per utilizzare il task manager inserire i seguenti comandi da terminale dopo aver installato node:
+- "npm i"
+- "npm start"
