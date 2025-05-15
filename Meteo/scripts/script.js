@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     form = document.getElementById("form");
+    getLocation = document.getElementById("getLocation");
 
     if (form){
         form.addEventListener("submit", (e) =>{
@@ -36,5 +37,28 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             
 
+    }
+    
+    if (getLocation){
+        getLocation.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+            } else {
+                console.error("Geolocalizzazione non supportata");
+            }
+        });
+    }
+
+
+    function success(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        document.getElementById("lat").value = lat;
+        document.getElementById("lon").value = lon;
+    }
+
+    function error() {
+        console.error("Impossibile ottenere la posizione");
     }
 });
