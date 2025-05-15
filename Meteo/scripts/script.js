@@ -2,6 +2,37 @@ document.addEventListener("DOMContentLoaded", () => {
     form = document.getElementById("form");
     getLocation = document.getElementById("getLocation");
 
+    const icons = {
+        "0": "☀️", 
+        "1": "🌤️", 
+        "2": "⛅", 
+        "3": "☁️", 
+        "45": "🌫️",
+        "48": "🌫️",
+        "51": "🌦️",
+        "53": "🌦️",
+        "55": "🌦️",
+        "56": "🌧️",
+        "57": "🌧️",
+        "61": "🌧️",
+        "63": "🌧️",
+        "65": "🌧️",
+        "66": "🌧️",
+        "67": "🌧️",
+        "71": "🌨️",
+        "73": "🌨️",
+        "75": "🌨️",
+        "77": "🌨️",
+        "80": "🌦️",
+        "81": "🌦️",
+        "82": "🌦️",
+        "85": "🌨️",
+        "86": "🌨️",
+        "95": "⛈️",
+        "96": "⛈️",
+        "99": "⛈️" 
+    }
+
     if (form){
         form.addEventListener("submit", (e) =>{
             e.preventDefault();
@@ -29,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p>Copertura nuvolosa: ${meteo.cloud_cover} %</p>
                         <p>Velocità vento: ${meteo.wind_speed_10m} km/h</p>
                         <p>Codice meteo: ${meteo.weather_code}</p>
+                        <p>${icons[meteo.weather_code]}</p>
                     `;
                 })
                 .catch(error => {
