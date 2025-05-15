@@ -8,6 +8,17 @@
     <script src="scripts/script.js" defer></script>
 </head>
 <body>
-    
+    <h1>BENVENUTI AL METEO (Tipo 3b ma per i poveri)</h1>
+    <br>
+    <h2>Inserisci la latitudine e la longitudine per le quali vuoi cercare le informazioni meteo</h2>
+    <form id="form">
+        <label for="lat">Latitudine:</label>
+        <input type="text" id="lat" name="lat" required placeholder="Latitudine">
+        <label for="lon">Longitudine:</label>
+        <input type="text" id="lon" name="lon" required placeholder="Longitudine">
+        <button type="submit">Invia</button>
+    </form>
+
+    <div id="weather-info" class="hidden"></div>
 </body>
 </html>
