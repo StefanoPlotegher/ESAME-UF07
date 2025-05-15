@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     form = document.getElementById("form");
     getLocation = document.getElementById("getLocation");
 
+    /**
+     * Mappa dei codici meteo a emoji/icona.
+     */
     const icons = {
         "0": "☀️", 
         "1": "🌤️", 
@@ -33,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "99": "⛈️" 
     }
 
+    /**
+     * Gestione del form con recupero dei dati meteo e
+     * visualizzazione degli stessi.
+     */
     if (form){
         form.addEventListener("submit", (e) =>{
             e.preventDefault();
@@ -40,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const lon = document.getElementById("lon").value;
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,precipitation,rain,cloud_cover,wind_speed_10m,weather_code`;
             
+            //fetch dei dati meteo
             fetch(url)
                 .then(response => {
                     if (!response.ok) {
@@ -50,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(data => {
                     const meteo = data.current;
                     const meteoDiv = document.getElementById("meteo");
-                    console.log(meteo);
+                    //Inserimento dei dati nella pagina
                     meteoDiv.innerHTML = `
                         <h2>Meteo attuale</h2>
                         <div class="weather-info">
@@ -73,10 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.error("Errore:", error);
                 });
             });
-            
-
     }
     
+    /**
+     * Recupero coordinate utente con api Navigator.
+     * 
+     */
     if (getLocation){
         getLocation.addEventListener("click", (e) => {
             e.preventDefault();
@@ -88,7 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
+    /**
+     * Callback per successo geolocalizzazione.
+     * @param {GeolocationPosition} position 
+     */
     function success(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
@@ -96,6 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("lon").value = lon;
     }
 
+    /**
+     * Callback per errore geolocalizzazione.
+     */
     function error() {
         console.error("Impossibile ottenere la posizione");
     }
