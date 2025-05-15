@@ -18,10 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(data => {
                     const meteo = data.current;
                     const meteoDiv = document.getElementById("meteo");
+                    console.log(meteo);
                     meteoDiv.innerHTML = `
                         <h2>Meteo attuale</h2>
-                        <p>Temperatura: ${meteo.temperature} °C</p>
-                        <p>Umidità: ${meteo.relative_humidity} %</p>
+                        <p>Temperatura: ${meteo.temperature_2m} °C</p>
+                        <p>Umidità: ${meteo.relative_humidity_2m} %</p>
                         <p>Precipitazioni: ${meteo.precipitation} mm</p>
                         <p>Pioggia: ${meteo.rain} mm</p>
                         <p>Copertura nuvolosa: ${meteo.cloud_cover} %</p>
