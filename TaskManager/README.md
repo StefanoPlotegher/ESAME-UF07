@@ -43,5 +43,5 @@ Per modificare i dati di una specifica task si clicca sulla card desiderata e si
 ## Utilizzo
 
 Per utilizzare il task manager inserire i seguenti comandi da terminale dopo aver installato node:
-- "npm install"
+- "npm install express"
 - "npm start"
