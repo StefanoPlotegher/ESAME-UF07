@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(data => {
                     const meteo = data.current;
+                    localStorage.setItem("meteo", JSON.stringify(meteo));
                     const meteoDiv = document.getElementById("meteo");
                     //Inserimento dei dati nella pagina
                     meteoDiv.innerHTML = `
